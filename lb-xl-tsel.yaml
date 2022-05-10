@@ -1,0 +1,41 @@
+---
+proxies:
+- name: XL
+  type: trojan
+  server: 104.18.21.226
+  port: 443
+  password: eef46d87-ae46-d801-e0d4-6c87ae46d801
+  udp: true
+  sni: her.myserverhome.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/trojanws"
+    headers:
+      Host: her.myserverhome.xyz
+  interface-name: wan
+  routing-mark: 1333
+
+- name: TELKOMSEL
+  type: trojan
+  server: 103.152.118.155
+  port: 443
+  password: eef46d87-ae46-d801-e0d4-6c87ae46d801
+  udp: true
+  sni: v27.tiktokcdn.com
+  skip-cert-verify: true
+  interface-name: modem.103
+  routing-mark: 2333
+  
+proxy-groups:
+
+- name: LB
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+  - XL
+  - TELKOMSEL
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+mode: global
