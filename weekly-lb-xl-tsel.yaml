@@ -1,0 +1,41 @@
+---
+proxies:
+- name: WEEKLY-XL
+  type: trojan
+  server: 104.18.21.226
+  port: 443
+  password: 1e4776e0-da27-11ec-bab2-1239d0255272
+  udp: true
+  sni: trojan1.bonds.id
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/howdy"
+    headers:
+      Host: trojan1.bonds.id
+  interface-name: wan
+  routing-mark: 1333
+
+- name: WEEKLY-TELKOMSEL
+  type: trojan
+  server: trojan1.bonds.id
+  port: 443
+  password: 1e4776e0-da27-11ec-bab2-1239d0255272
+  udp: true
+  sni: api2-t3.musical.ly
+  skip-cert-verify: true
+  interface-name: modem.103
+  routing-mark: 2333
+  
+proxy-groups:
+
+- name: LB-WEEKLY
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+  - WEEKLY-XL
+  - WEEKLY-TELKOMSEL
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+mode: global
