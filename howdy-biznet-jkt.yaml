@@ -47,7 +47,7 @@ proxies:
     server: 104.18.21.226
     port: 443
     type: trojan
-    password: 9f26fb70-e919-11ec-84a3-1239d0255272
+    password: f4184930-ea1f-11ec-ad51-1239d0255272
     skip-cert-verify: true
     sni: id2-trojan.bonds.id
     network: ws
@@ -60,7 +60,7 @@ proxies:
     server: id2-trojan.bonds.id
     port: 443
     type: trojan
-    password: 9f26fb70-e919-11ec-84a3-1239d0255272
+    password: f4184930-ea1f-11ec-ad51-1239d0255272
     skip-cert-verify: true
     sni: api2-t3.musical.ly
     udp: true
