@@ -1,0 +1,191 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: ""
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  ipv6: false
+  use-host: true
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+    - 112.215.37.165
+  default-nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+    - 112.215.37.165
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+proxies:
+  - name: XL-rackhtj-01
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: 830862c0-eab7-11ec-96dc-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+  - name: XL-rackhtj-02
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: 8daefd40-eab7-11ec-a845-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+  - name: XL-rackhtj-03
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: 92353f60-eab7-11ec-865b-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+  - name: XL-rackhtj-04
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: 96ae08b0-eab7-11ec-a99a-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+  - name: XL-rackhtj-05
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: 9b34d570-eab7-11ec-83b3-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+  - name: XL-rackhtj-06
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: 9f7b72b0-eab7-11ec-b7fa-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+  - name: XL-rackhtj-07
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: a4176f60-eab7-11ec-ae4e-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+  - name: XL-rackhtj-08
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: a8d5f380-eab7-11ec-a01e-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+  - name: XL-rackhtj-09
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: ad36a7e0-eab7-11ec-ae17-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+  - name: XL-rackhtj-10
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: b340e100-eab7-11ec-b10e-1239d0255272
+    skip-cert-verify: true
+    sni: id-rackhtj.bonds.id
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: id-rackhtj.bonds.id
+    udp: true
+proxy-groups:
+  - name: SELECT
+    type: select
+    proxies:	
+      - XL-rackhtj-01
+	  - XL-rackhtj-02
+	  - XL-rackhtj-03
+	  - XL-rackhtj-04
+	  - XL-rackhtj-05
+	  - XL-rackhtj-06
+	  - XL-rackhtj-07
+	  - XL-rackhtj-08
+	  - XL-rackhtj-09
+	  - XL-rackhtj-10
+      - DIRECT
+	  - REJECT
