@@ -176,16 +176,16 @@ proxies:
 proxy-groups:
   - name: SELECT
     type: select
-    proxies:	
+    proxies:
       - XL-rackhtj-01
-	  - XL-rackhtj-02
-	  - XL-rackhtj-03
-	  - XL-rackhtj-04
-	  - XL-rackhtj-05
-	  - XL-rackhtj-06
-	  - XL-rackhtj-07
-	  - XL-rackhtj-08
-	  - XL-rackhtj-09
-	  - XL-rackhtj-10
+      - XL-rackhtj-02
+      - XL-rackhtj-03
+      - XL-rackhtj-04
+      - XL-rackhtj-05
+      - XL-rackhtj-06
+      - XL-rackhtj-07
+      - XL-rackhtj-08
+      - XL-rackhtj-09
+      - XL-rackhtj-10
       - DIRECT
-	  - REJECT
+      - REJECT
