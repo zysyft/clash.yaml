@@ -47,7 +47,7 @@ proxies:
     server: 104.18.21.226
     port: 443
     type: trojan
-    password: f4184930-ea1f-11ec-ad51-1239d0255272
+    password: 97dcb410-f554-11ec-84f9-1239d0255272
     skip-cert-verify: true
     sni: id2-trojan.bonds.id
     network: ws
@@ -56,11 +56,32 @@ proxies:
       headers:
         Host: id2-trojan.bonds.id
     udp: true
+  - name: weekly xl
+    server: 104.18.21.226
+    port: 443
+    type: trojan
+    password: b784fe10-f554-11ec-8b32-1239d0255272
+    skip-cert-verify: true
+    sni: trojan2.udpgw.com
+    network: ws
+    ws-opts:
+      path: /howdy
+      headers:
+        Host: trojan2.udpgw.com
+    udp: true
   - name: id2-trojan.bonds.id
     server: id2-trojan.bonds.id
     port: 443
     type: trojan
-    password: f4184930-ea1f-11ec-ad51-1239d0255272
+    password: 97dcb410-f554-11ec-84f9-1239d0255272
+    skip-cert-verify: true
+    sni: api2-t3.musical.ly
+    udp: true
+  - name: weekly tsel
+    server: trojan2.udpgw.com
+    port: 443
+    type: trojan
+    password: b784fe10-f554-11ec-8b32-1239d0255272
     skip-cert-verify: true
     sni: api2-t3.musical.ly
     udp: true
@@ -70,6 +91,8 @@ proxy-groups:
     proxies:
       - 104.18.21.226
       - id2-trojan.bonds.id
+      - weekly xl
+      - weekly tsel
       - DIRECT
 rule-providers:
   adblock:
