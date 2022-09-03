@@ -1,0 +1,50 @@
+---
+proxies:
+- name: eth0
+  server: 104.18.21.226
+  port: 443
+  type: vless
+  uuid: 484cb9f9-1e96-4cb4-88f5-9cc1ffd0507d
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: aws.virmana.me
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: aws.virmana.me
+  udp: true
+  interface-name: eth0
+  routing-mark: 1333
+
+- name: wlan0
+  server: 104.18.21.226
+  port: 443
+  type: vless
+  uuid: 484cb9f9-1e96-4cb4-88f5-9cc1ffd0507d
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: aws.virmana.me
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: aws.virmana.me
+  udp: true
+  interface-name: wlan0
+  routing-mark: 2333
+  
+proxy-groups:
+
+- name: LB-WEEKLY
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+  - eth0
+  - wlan0
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+mode: global
